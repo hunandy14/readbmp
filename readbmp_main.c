@@ -143,20 +143,20 @@ void bmpRead(const char* name, uch** raw_img,
     fclose(pFile);
 }
 
-struct Imgraw {
+struct basic_ImgData {
     uint32_t width, height;
     uint16_t bits;
     uch* data;
 };
 
-void Imgraw_read(const char* inputName, const struct Imgraw* img){
+void Imgraw_read(const char* inputName, struct basic_ImgData* img){
     if (inputName!=NULL && img!=NULL){
         bmpRead(inputName, &img->data, &img->width, &img->height, &img->bits);
     } else {
         printf("Error!");
     }
 }
-void Imgraw_write(const char* outputName, const struct Imgraw* img){
+void Imgraw_write(const char* outputName, const struct basic_ImgData* img){
     if (outputName!=NULL && img!=NULL){
         bmpWrite(outputName, img->data, img->width, img->height, img->bits);
     } else {
@@ -164,13 +164,13 @@ void Imgraw_write(const char* outputName, const struct Imgraw* img){
     }
 }
 
-void testImg(const char* inputName, const char* outputName, const struct Imgraw* img){
+void testImg(const char* inputName, const char* outputName, struct basic_ImgData* img){
     Imgraw_read(inputName, img);
     Imgraw_write(outputName, img);
 }
 /*==============================================================*/
 int main(int argc, char const *argv[]) {
-    struct Imgraw img;
+    struct basic_ImgData img;
     testImg("testImg/kanna1.bmp", "outImg/_kanna1.bmp", &img);
     testImg("testImg/kanna2.bmp", "outImg/_kanna2.bmp", &img);
     testImg("testImg/kanna3.bmp", "outImg/_kanna3.bmp", &img);
