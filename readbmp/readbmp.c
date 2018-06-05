@@ -139,7 +139,7 @@ void bmpRead(const char* name, unsigned char** raw_img,
 }
 
 // 封裝檔案
-void Imgraw_read(const char* inputName, struct basic_ImgData* img)
+void ImgData_read(const char* inputName, struct basic_ImgData* img)
 {
     if (inputName!=NULL && img!=NULL){
         bmpRead(inputName, &img->data, &img->width, &img->height, &img->bits);
@@ -147,7 +147,7 @@ void Imgraw_read(const char* inputName, struct basic_ImgData* img)
         printf("Error!");
     }
 }
-void Imgraw_write(const char* outputName, const struct basic_ImgData* img)
+void ImgData_write(const char* outputName, const struct basic_ImgData* img)
 {
     if (outputName!=NULL && img!=NULL){
         bmpWrite(outputName, img->data, img->width, img->height, img->bits);

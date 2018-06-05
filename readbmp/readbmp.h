@@ -1,5 +1,8 @@
 #ifndef READBMP_H
 #define READBMP_H
+#ifdef  __cplusplus
+extern  "C" {
+#endif
 
 
 #include <inttypes.h>
@@ -10,8 +13,12 @@ struct basic_ImgData {
     unsigned char* data;
 };
 
-void Imgraw_read(const char* inputName, struct basic_ImgData* img);
-void Imgraw_write(const char* outputName, const struct basic_ImgData* img);
+void ImgData_read(const char* inputName, struct basic_ImgData* img);
+void ImgData_write(const char* outputName, const struct basic_ImgData* img);
 
 
+
+#ifdef  __cplusplus
+}
+#endif
 #endif // READBMP_H

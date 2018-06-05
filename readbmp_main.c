@@ -9,8 +9,8 @@ Final: 2018/05/28
 #include "readbmp/readbmp.h"
 
 void testImg(const char* inputName, const char* outputName, struct basic_ImgData* img){
-    Imgraw_read(inputName, img);
-    Imgraw_write(outputName, img);
+    ImgData_read(inputName, img);
+    ImgData_write(outputName, img);
 }
 /*==============================================================*/
 int main(int argc, char const *argv[]) {
